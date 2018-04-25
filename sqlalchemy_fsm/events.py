@@ -55,7 +55,9 @@ class BoundFSMDispatcher(object):
         self.__cls_dispatcher = get_class_bound_dispatcher(type(instance))
         for fsm_handle in ('before_state_change', 'after_state_change'):
             # Precompute fsm handles
-            getattr(self, fsm_handle)
+            # TODO: disable events
+            # getattr(self, fsm_handle)
+            pass
 
     def __getattr__(self, name):
         handle = partial(getattr(self.__cls_dispatcher, name), self.__ref)
