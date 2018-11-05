@@ -5,19 +5,6 @@ from sqlalchemy.orm.instrumentation import register_class
 import sqlalchemy.orm.events
 
 
-@sqlalchemy.event.dispatcher
-class FSMSchemaEvents(sqlalchemy.orm.events.InstanceEvents):
-    """Define event listeners for FSM Schema (table) objects."""
-
-    def before_state_change(self, source, target):
-        """Event that is fired before the model changes
-        form `source` to `target` state."""
-
-    def after_state_change(self, source, target):
-        """Event that is fired after the model changes
-        form `source` to `target` state."""
-
-
 class InstanceRef(object):
     """This class has to be passed to the dispatch call as instance.
 
